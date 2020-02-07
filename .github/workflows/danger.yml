@@ -1,5 +1,5 @@
 name: Run Danger Ruby Example
-on: pull_request
+on: push
 
 jobs:
   danger_check_pr_labels:
