@@ -1,14 +1,6 @@
+// In order to show that Danger posts multiple comments instead of updating the
+// existing one, here's a super simple Dangerfile which always posts a warning.
+
 import {warn, danger} from "danger";
 
-const githubLabels = danger.github.issue.labels;
-
-// A PR should have at least one label
-if (githubLabels.length == 0) {
-    warn("PR is missing at least one label.");
-}
-
-// A PR shouldn't be merged with the 'DO NOT MERGE' label
-const doNotMerge = githubLabels.some(label => label.name.includes("DO NOT MERGE"));
-if (doNotMerge) {
-    warn("This PR is tagged with 'DO NOT MERGE'.");
-}
+warn("This demo warning was generated on " + new Date());
