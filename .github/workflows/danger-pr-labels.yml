@@ -1,0 +1,27 @@
+name: Run Danger on PRs for Labels
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, labeled, unlabeled]
+
+jobs:
+  danger_check_pr_labels:
+    name: "Check Labels"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Install Yarn
+        run: npm install -g yarn
+
+      - name: Install Danger JS with Yarn
+        run: |
+          yarn install  --frozen-lockfile
+
+      - name: Check Labels with DangerJS
+        run: yarn danger ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.MOKAGIO_BOT_GITHUB_TOKEN }}
