@@ -19,6 +19,6 @@ jobs:
         run: bundle install
 
       - name: Run Danger Ruby
-        run: bundle exec danger ci
+        run: bundle exec danger
         env:
           GITHUB_TOKEN: ${{ secrets.MOKAGIO_BOT_GITHUB_TOKEN }}
