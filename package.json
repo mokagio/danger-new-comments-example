@@ -1,5 +1,5 @@
 {
   "devDependencies": {
-    "danger": "^9.2.10"
+    "danger": "https://github.com/danger/danger-js"
   }
 }
