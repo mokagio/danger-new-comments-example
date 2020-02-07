@@ -1,0 +1,24 @@
+name: Run Danger Ruby Example
+on: pull_request
+
+jobs:
+  danger_check_pr_labels:
+    name: "Dummy Danger Run"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.6.5
+
+      - name: Install Bundler
+        run: gem install bundler
+
+      - name: Install Danger Ruby with Bundler
+        run: bundle install
+
+      - name: Run Danger Ruby
+        run: bundle exec danger ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.MOKAGIO_BOT_GITHUB_TOKEN }}
