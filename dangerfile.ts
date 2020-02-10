@@ -14,5 +14,5 @@ const readme = danger
     //
     // Let's just make a silly inline comment here, rather than something
     // smarter based on the diff content
-    warn("Demo inline comment made at " + new Date(), path, 0)
+    warn("Demo inline comment made at " + new Date() + " for " + path, path, 1)
   })
