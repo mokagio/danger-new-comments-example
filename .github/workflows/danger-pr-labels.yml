@@ -24,4 +24,4 @@ jobs:
       - name: Check Labels with DangerJS
         run: yarn danger ci
         env:
-          GITHUB_TOKEN: ${{ secrets.MOKAGIO_BOT_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
